@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/posts_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        tools:context=".activities.ListPostsActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/title_list_forecast_days"
+            app:titleTextAppearance="@style/Helios.TextView.HeadLine" />
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorLine"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/forecast_days_view_pager2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ProgressBar
+            android:id="@+id/forecast_days_progress_bar"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/no_forecast_days_text_view"
+            style="@style/Helios.TextView.Info.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:text="@string/info_no_forecast_days"
+            app:drawableTopCompat="@drawable/ic_no_posts_96dp" />
+
+    </LinearLayout>
+</layout>
