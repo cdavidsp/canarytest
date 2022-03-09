@@ -139,7 +139,7 @@ and default parameters
 
 ## Demo
 
-|<img src="imgs/sh11.png" width=200/>|<img src="imgs/sh12.png" width=200/>|<img src="imgs/sh13.png" width=200/>|
+|<img src="imgs/sh11.jpg" width=200/>|<img src="imgs/sh12.jpg" width=200/>|<img src="imgs/sh13.jpg" width=200/>|
 
 
 ## License
