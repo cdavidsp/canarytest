@@ -25,17 +25,17 @@ internal class ForecastDaysRepositoryTest : BaseTest() {
     @Before
     override fun setup() {
         super.setup()
-        forecastDaysRepository = ForecastDaysRepository(heliosApiService, forecastDaysDao, appPreferences)
+        forecastDaysRepository = ForecastDaysRepository(heliosApiService, forecastDaysDao)
     }
 
     @Test
     fun `when forecast days are requested and the device has internet connection, then return data should from api `() {
         runBlocking(Dispatchers.IO) {
 
-            val postsFlow = forecastDaysRepository.getForecastDays("", "", true)
+            val forecastFlow = forecastDaysRepository.getForecastDays("", "", true)
             val numberOfDays = 3 // in forecast.json
 
-            postsFlow.collect { forecastDays ->
+            forecastFlow.collect { forecastDays ->
                 Truth.assertThat(forecastDays.size).isEqualTo(numberOfDays)
             }
         }

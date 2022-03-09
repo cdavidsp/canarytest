@@ -10,7 +10,12 @@ import org.koin.dsl.module
 
 val dataSourceModule = module {
 
-    single<IForecastDaysRepository> { ForecastDaysRepository(forecastDaysDao = get(), apiService = get(), appPreferences = get()) }
+    single<IForecastDaysRepository> {
+        ForecastDaysRepository(
+            forecastDaysDao = get(),
+            apiService = get()
+        )
+    }
 
     single {
         Room

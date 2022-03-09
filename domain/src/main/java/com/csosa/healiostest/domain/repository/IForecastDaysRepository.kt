@@ -5,5 +5,9 @@ import kotlinx.coroutines.flow.Flow
 
 interface IForecastDaysRepository {
 
-    suspend fun getForecastDays(apiKey: String, query: String, isConnected: Boolean): Flow<List<ForecastDay>>
+    suspend fun getForecastDays(
+        apiKey: String,
+        query: String,
+        isConnected: Boolean
+    ): Flow<List<ForecastDay>>
 }

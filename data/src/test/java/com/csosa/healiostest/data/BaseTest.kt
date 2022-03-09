@@ -6,7 +6,6 @@ import androidx.test.core.app.ApplicationProvider
 import com.csosa.healiostest.data.helpers.HeliosRequestDispatcher
 import com.csosa.healiostest.data.local.HealiosDatabase
 import com.csosa.healiostest.data.local.dao.ForecastDaysDao
-import com.csosa.healiostest.data.preferences.AppPreferences
 import com.csosa.healiostest.data.remote.api.HealiosApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
@@ -34,7 +33,6 @@ internal open class BaseTest {
 
     protected lateinit var forecastDaysDao: ForecastDaysDao
 
-    protected lateinit var appPreferences: AppPreferences
 
 
     @Before
@@ -59,7 +57,6 @@ internal open class BaseTest {
         db = Room.inMemoryDatabaseBuilder(context, HealiosDatabase::class.java).build()
         forecastDaysDao = db.forecastDaysDao()
 
-        appPreferences = AppPreferences(context)
     }
 
     @After

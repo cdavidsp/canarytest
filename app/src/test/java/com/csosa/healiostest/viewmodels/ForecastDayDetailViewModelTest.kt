@@ -33,7 +33,8 @@ internal class ForecastDayDetailViewModelTest : BaseViewModelTest() {
         coroutineTestRule.dispatcher.runBlockingTest {
             prepareViewModel(UiState.SUCCESS)
             val forecastDayId = 1L
-            val forecastDayPresentation = Data.forecastDays.firstOrNull { it.id == forecastDayId }!!.toPresentation()
+            val forecastDayPresentation =
+                Data.forecastDays.firstOrNull { it.id == forecastDayId }!!.toPresentation()
 
             forecastDayDetailViewModel.getForecastDayDetails(forecastDayPresentation)
 
@@ -70,8 +71,8 @@ internal class ForecastDayDetailViewModelTest : BaseViewModelTest() {
     @After
     fun clear() {
 
-       // Data.users.clear()
-       // Data.comments.clear()
+        // Data.users.clear()
+        // Data.comments.clear()
     }
 
     // endregion

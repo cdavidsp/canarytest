@@ -9,9 +9,12 @@ import kotlinx.coroutines.flow.Flow
 
 class FakeGetForecastDaysUseCase(
     uiState: UiState
-) : BaseTestUseCase<List<ForecastDay>, GetForecastDaysUseCaseInput>(uiState), GetForecastDaysBaseUseCase {
+) : BaseTestUseCase<List<ForecastDay>, GetForecastDaysUseCaseInput>(uiState),
+    GetForecastDaysBaseUseCase {
 
-    override suspend fun invoke(params: GetForecastDaysUseCaseInput): Flow<List<ForecastDay>> = execute(params)
+    override suspend fun invoke(params: GetForecastDaysUseCaseInput): Flow<List<ForecastDay>> =
+        execute(params)
 
-    override fun getValue(params: GetForecastDaysUseCaseInput): List<ForecastDay> = Data.forecastDays
+    override fun getValue(params: GetForecastDaysUseCaseInput): List<ForecastDay> =
+        Data.forecastDays
 }

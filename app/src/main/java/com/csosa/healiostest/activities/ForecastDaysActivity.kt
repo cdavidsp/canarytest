@@ -22,15 +22,14 @@ import com.csosa.healiostest.models.states.ForecastDaysViewState
 import com.csosa.healiostest.viewmodel.ForecastDaysViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import kotlinx.android.synthetic.main.activity_forecast_days.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 private const val TAG = "ForecastDaysActivity"
+
 internal class ForecastDaysActivity : BaseActivity() {
 
     // region Members
-
 
 
     private val forecastDaysViewModel by viewModel<ForecastDaysViewModel>()
@@ -62,11 +61,7 @@ internal class ForecastDaysActivity : BaseActivity() {
         observeForecastDaysViewState()
 
 
-
-
     }
-
-
 
 
     override fun onResume() {
@@ -78,7 +73,7 @@ internal class ForecastDaysActivity : BaseActivity() {
 
         forecastDaysViewModel.isConnected = isNetworkAvailable(this)
 
-        checkLocationPermission();
+        checkLocationPermission()
 
     }
 
@@ -103,13 +98,13 @@ internal class ForecastDaysActivity : BaseActivity() {
         } else {
 
             fusedLocationClient.lastLocation
-                .addOnSuccessListener { location : Location? ->
+                .addOnSuccessListener { location: Location? ->
                     // Got last known location. In some rare situations this can be null.
                     Log.i(TAG, "executegetForecastDays")
 
-                    if(location != null){
-                        forecastDaysViewModel.locationLat = location?.latitude!!
-                        forecastDaysViewModel.locationLon = location?.longitude!!
+                    if (location != null) {
+                        forecastDaysViewModel.locationLat = location.latitude
+                        forecastDaysViewModel.locationLon = location.longitude
                     } else { // for testing purpose
 
                         forecastDaysViewModel.locationLat = 40.416775
@@ -133,24 +128,25 @@ internal class ForecastDaysActivity : BaseActivity() {
 
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(grantResults[0]==PackageManager.PERMISSION_GRANTED)
-        {
+        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
             fusedLocationClient.lastLocation
-                .addOnSuccessListener { location : Location? ->
+                .addOnSuccessListener { location: Location? ->
 
                     Log.i(TAG, "executegetForecastDays2")
 
                     // Got last known location. In some rare situations this can be null.
                     forecastDaysViewModel.locationLat = location?.latitude!!
-                    forecastDaysViewModel.locationLon = location?.longitude!!
+                    forecastDaysViewModel.locationLon = location.longitude
                     forecastDaysViewModel.executegetForecastDays()
                 }
 
-        }
-        else
-        {
-
+        } else {
+            showSnackBar(
+                binding.forecastDaysViewPager2,
+                "This app must have permissions for get Location",
+                isError = true
+            )
         }
     }
 
@@ -180,10 +176,10 @@ internal class ForecastDaysActivity : BaseActivity() {
         forecastDaysViewModel.forecastDaysViewState.observe(this, Observer { state ->
 
 
-            if(!state.isLoading) {
+            if (!state.isLoading) {
 
                 state.forecastDays?.let { forecastDays ->
-                    if (forecastDays.isNotEmpty() ) {
+                    if (forecastDays.isNotEmpty()) {
                         handleForecastDays(forecastDays)
                     } else {
                         binding.noForecastDaysTextView.show()
@@ -230,9 +226,6 @@ internal class ForecastDaysActivity : BaseActivity() {
             )
         }
     }
-
-
-
 
 
     // endregion

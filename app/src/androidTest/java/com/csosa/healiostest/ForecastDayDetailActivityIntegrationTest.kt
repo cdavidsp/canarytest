@@ -30,7 +30,7 @@ internal class ForecastDayDetailActivityIntegrationTest : BaseTest() {
     }
 
     @Test
-    fun shouldLoadDataOnLaunchWithValidPostsId() {
+    fun shouldLoadDataOnLaunchWithValidForecastDayId() {
         val intent = Intent().putExtra(
             NavigationUtils.FORECAST_DAY_PARCEL_KEY,
             ForecastDayPresentation(

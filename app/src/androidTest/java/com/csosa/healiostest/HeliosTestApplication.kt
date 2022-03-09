@@ -13,7 +13,6 @@ class HeliosTestApplication : Application() {
             androidContext(this@HeliosTestApplication)
             modules(
                 fakeNetworkModule,
-                appPreferenceModule,
                 fakeDataSourceModule,
                 useCasesModule,
                 viewModelsModule

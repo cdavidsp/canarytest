@@ -19,12 +19,9 @@ internal class HeliosApplication : Application() {
             modules(
                     networkModule,
                     viewModelsModule,
-                    appPreferenceModule,
                     dataSourceModule,
                     useCasesModule
             )
         }
-
     }
-
 }

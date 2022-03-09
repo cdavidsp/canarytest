@@ -15,7 +15,7 @@ import org.robolectric.annotation.Config
 
 @ExperimentalCoroutinesApi
 @RunWith(AndroidJUnit4::class)
-@Config(manifest=Config.NONE, sdk = [Build.VERSION_CODES.P])
+@Config(manifest = Config.NONE, sdk = [Build.VERSION_CODES.P])
 internal class ForecastDaysViewModelTest : BaseViewModelTest() {
 
     // region Members
@@ -27,7 +27,7 @@ internal class ForecastDaysViewModelTest : BaseViewModelTest() {
     // region Tests
 
     @Test
-    fun `should get all post`() {
+    fun `should get forecast days`() {
         coroutineTestRule.dispatcher.runBlockingTest {
 
             prepareViewModel(UiState.SUCCESS)

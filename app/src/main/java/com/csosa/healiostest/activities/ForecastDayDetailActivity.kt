@@ -16,7 +16,7 @@ internal class ForecastDayDetailActivity : BaseActivity(), IForecastDayDetailBin
 
     // region Members
 
-    private val ForecastDayDetailViewModel by viewModel<ForecastDayDetailViewModel>()
+    private val forecastDayDetailViewModel by viewModel<ForecastDayDetailViewModel>()
 
     private lateinit var binding: ActivityForecastDayDetailBinding
 
@@ -38,11 +38,11 @@ internal class ForecastDayDetailActivity : BaseActivity(), IForecastDayDetailBin
         observeDetailViewState()
 
         if (forecastDayPresentation == null) {
-            ForecastDayDetailViewModel
+            forecastDayDetailViewModel
                 .displayForecastDayError(R.string.error_loading_forecast_day_details)
         } else {
 
-            ForecastDayDetailViewModel.getForecastDayDetails(forecastDayPresentation)
+            forecastDayDetailViewModel.getForecastDayDetails(forecastDayPresentation)
         }
 
     }
@@ -53,7 +53,7 @@ internal class ForecastDayDetailActivity : BaseActivity(), IForecastDayDetailBin
 
     private fun observeDetailViewState() {
 
-        ForecastDayDetailViewModel.detailViewState.observe(this, Observer {
+        forecastDayDetailViewModel.detailViewState.observe(this, Observer {
             bindForecastDayDetail(it.info)
 
             EspressoIdlingResource.decrement()
@@ -75,8 +75,6 @@ internal class ForecastDayDetailActivity : BaseActivity(), IForecastDayDetailBin
 
         showSnackBar(binding.forecastDayDetailsLayout, message, isError = true)
     }
-
-
 
 
     // endregion

@@ -10,7 +10,12 @@ import org.koin.dsl.module
 
 val fakeDataSourceModule = module {
 
-    single<IForecastDaysRepository> { ForecastDaysRepository(forecastDaysDao = get(), apiService = get(), appPreferences = get()) }
+    single<IForecastDaysRepository> {
+        ForecastDaysRepository(
+            forecastDaysDao = get(),
+            apiService = get()
+        )
+    }
 
     single {
         Room
@@ -23,4 +28,5 @@ val fakeDataSourceModule = module {
     single { provideForecastDaysDao(db = get()) }
 
 }
+
 internal fun provideForecastDaysDao(db: HealiosDatabase): ForecastDaysDao = db.forecastDaysDao()

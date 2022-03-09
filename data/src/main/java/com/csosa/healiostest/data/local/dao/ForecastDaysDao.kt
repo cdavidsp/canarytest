@@ -17,10 +17,10 @@ interface ForecastDaysDao {
     suspend fun getCount(): Int
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(posts: List<ForecastDayEntity?>?)
+    suspend fun insertAll(forecastDays: List<ForecastDayEntity?>?)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(post: ForecastDayEntity?)
+    suspend fun insert(forecastDayEntity: ForecastDayEntity?)
 
     @Query("DELETE FROM forecastdays")
     suspend fun deleteAll()

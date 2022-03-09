@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import com.csosa.healiostest.BuildConfig
 import com.csosa.healiostest.commons.ExceptionHandler
 import com.csosa.healiostest.domain.usecases.GetForecastDaysBaseUseCase
-import com.csosa.healiostest.domain.usecases.GetForecastDaysUseCase
 import com.csosa.healiostest.domain.usecases.GetForecastDaysUseCaseInput
 import com.csosa.healiostest.idlingresource.EspressoIdlingResource
 import com.csosa.healiostest.mappers.toPresentation

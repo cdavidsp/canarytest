@@ -10,7 +10,7 @@ class GetForecastDaysUseCase(
     private val forecastDaysRepository: IForecastDaysRepository
 ) : GetForecastDaysBaseUseCase {
 
-    override suspend fun invoke(params: GetForecastDaysUseCaseInput)
-    = forecastDaysRepository.getForecastDays(params.apiKey, params.query, params.isConnected)
+    override suspend fun invoke(params: GetForecastDaysUseCaseInput) =
+        forecastDaysRepository.getForecastDays(params.apiKey, params.query, params.isConnected)
 
 }
