@@ -1,25 +1,23 @@
 # android-mvvm
 
-Demo Android app that consume [3 endpoints]:
-- https://jsonplaceholder.typicode.com/posts
-- https://jsonplaceholder.typicode.com/users
-- https://jsonplaceholder.typicode.com/comments
+Demo Android app that consume
+https://api.weatherapi.com
+
+This demo use Free plan, which support only 3 forecast days 
+For more detail about the api: https://www.weatherapi.com/
+
 
 The app have two screens:
-- A first screen to present a list of posts.
-- A second screen presenting post details.
+- A first screen to present a viewpager2 with 3 pages.
+- A second screen presenting forecast day details.
 
-The first time the app will get all data from API, and store that in a local DB, 
-and register the timestamp of the last call per endpoint.
+The first time app request permissions for get the location of user, 
+after that the app get data from API and store the result in one internal DB
 
-The data in local DB will be active for 5 minutes, during this time if the user 
-open one screen the app doesn't call to API.
+if the app doesn't have access to internet, the data will be get from internal DB.
 
-After the expiration of data(more of 5 minutes), if the user open one screen, the 
-app will call to API again and update local DB.
+This app works in offline using the data from internalDB. 
 
-The App use single source of truth principle, all of data present to the user will be 
-from local DB.
 
 It has been built with clean architecture principles, Repository Pattern and MVVM
 pattern as well as Architecture Components.
@@ -147,7 +145,7 @@ and default parameters
 ## License
 
  ```
-   Copyright 2021 Cesar Sosa
+   Copyright 2022 Cesar Sosa
    
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
